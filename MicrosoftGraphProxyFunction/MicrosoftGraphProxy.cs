@@ -11,13 +11,13 @@ namespace MicrosoftGraphProxyFunction
     public static class MicrosoftGraphProxy
     {
         [FunctionName("MicrosoftGraphV1")]
-        public static async Task<HttpResponseMessage> RunV1([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1.0/{*uri}")]HttpRequest req, ILogger log, ExecutionContext ec)
+        public static async Task<HttpResponseMessage> RunV1([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1.0/{*uri}")]HttpRequest req, string uri, ILogger log, ExecutionContext ec)
         {
             return await Run(req, log, ec, "v1.0");
         }
 
         [FunctionName("MicrosoftGraphBeta")]
-        public static async Task<HttpResponseMessage> RunBeta([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "beta/{*uri}")]HttpRequest req, ILogger log, ExecutionContext ec)
+        public static async Task<HttpResponseMessage> RunBeta([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "beta/{*uri}")]HttpRequest req, string uri, ILogger log, ExecutionContext ec)
         {
             return await Run(req, log, ec, "beta");
         }
