@@ -17,7 +17,7 @@ namespace MicrosoftGraphProxyFunction.Utils
 
         public static async Task<string> GetSecretAsync(string keyVaultUri, string secretName)
         {
-            var secretUri = $"{keyVaultUri}/Secrets/{secretName}";
+            var secretUri = UrlUtilities.Combine(keyVaultUri, "/Secrets/", secretName);
             SecretBundle secretValue = await keyVaultClient.GetSecretAsync(secretUri);
             return secretValue.Value;
         }
