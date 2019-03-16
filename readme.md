@@ -51,7 +51,7 @@ THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPL
                 * Client Secret
             * Allowed token audiences
                 * Copy the existing url
-                * Add it again, without '__/.auth/login/aad/callback__'
+                * Add it again, without '__/.auth/login/aad/callback__' (make sure there is no more ending /)
             * Save  
 5. In the Azure Portal, create a KeyVault
     1. While creating
