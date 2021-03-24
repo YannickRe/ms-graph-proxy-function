@@ -30,9 +30,9 @@ THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPL
 2. Clone the repository
 3. Deploy the code into the newly created Azure Function App
 4. In the Azure Portal, open the Function App  
-    1. Open Platform Features
-    2. Open __Managed service identity__
-        * Register with Azure Active Directory: '__On__'
+    1. Underneath Settings, open __Identity__
+        * Select tab __System assigned__
+        * Set Status to '__On__'
         * Save
     3. Open __Authentication / Authorization__
         * App Service Authentication: '__On__'
@@ -50,8 +50,8 @@ THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPL
                 * Client Id
                 * Client Secret
             * Allowed token audiences
-                * Copy the existing url
-                * Add it again, without '__/.auth/login/aad/callback__' (make sure there is no more ending /)
+                * There is already one URL in there, eg. __https://[function-name].azurewebsites.net/.auth/login/aad/callback__, copy it
+                * Add it on a new line and remove '__/.auth/login/aad/callback__' (make sure there is no more ending /). You'll end with __https://[function-name].azurewebsites.net__
             * Save  
 5. In the Azure Portal, create a KeyVault
     1. While creating
