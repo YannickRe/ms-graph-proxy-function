@@ -34,24 +34,19 @@ THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPL
         * Select tab __System assigned__
         * Set Status to '__On__'
         * Save
-    3. Open __Authentication / Authorization__
-        * App Service Authentication: '__On__'
-        * Action to take when request is not authenticated: '__Log in with Azure Active Directory__'
-        * Azure Active Directory:
-            * Management mode: '__Express__'
-            * Management mode: '__Create New AD App__'
-            * Create App: '__Microsoft Graph Proxy Function__'
-            * Grant Common Data Services Permissions: '__Off__'
-            * __Save__ and __close__ the blades
-    4. Open __Authentication / Authorization__
-        * Azure Active Directory
-            * Management mode: '__Advanced__'
-            * Copy and store the values for:
-                * Client Id
-                * Client Secret
-            * Allowed token audiences
-                * There is already one URL in there, eg. __https://[function-name].azurewebsites.net/.auth/login/aad/callback__, copy it
-                * Add it on a new line and remove '__/.auth/login/aad/callback__' (make sure there is no more ending /). You'll end with __https://[function-name].azurewebsites.net__
+    3. Open __Authentication__
+        * Select: '__Add an identity provider__':
+            * Identity provider: '__Microsoft__'
+            * App registration type: '__Create new app registration__'
+            * Supported account types: '__Current tenant - Single tenant__'
+            * Restrict access: '__Require authentication__'
+            * Unauthenticated requests: '__HTTP 401__'
+        * Select: '__Add__'
+    4. Open __Authentication__
+        * Edit the identity provider that was created in the previous step:
+            * Allowed token audiences, make sure you have two entries (amek sure you use the correct URL of your function app):
+                * __https://[function-name].azurewebsites.net/.auth/login/aad/callback__
+                * __https://[function-name].azurewebsites.net__
             * Save  
 5. In the Azure Portal, create a KeyVault
     1. While creating
